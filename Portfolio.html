@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parikshit Koli – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0f1d; --surface:rgba(255,255,255,.045); --line:rgba(255,255,255,.1); --ink:#e9eefb; --muted:#9aa7c2;
+  --accent:#5eead4; --accent-ink:#04201c; --blob:#7c6cf0; --nav:rgba(10,15,29,.72);
+  color-scheme:dark; box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));height:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 "IBM Plex Sans",system-ui,sans-serif;overflow-x:hidden;min-height:100%}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;margin:0;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.i.f{fill:currentColor;stroke:none}
+
+.bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.22;will-change:transform}
+.bg i:nth-child(1){width:420px;height:420px;background:var(--accent);top:-120px;right:-100px;animation:float 16s ease-in-out infinite alternate}
+.bg i:nth-child(2){width:380px;height:380px;background:var(--blob);bottom:-140px;left:-120px;animation:float 20s ease-in-out infinite alternate-reverse}
+@keyframes float{to{transform:translate3d(-40px,50px,0)}}
+
+header{position:sticky;top:0;z-index:20;background:var(--nav);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--nav);z-index:21}
+.bar{max-width:1120px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font:800 20px "Bricolage Grotesque",sans-serif;text-decoration:none}
+.logo b{color:var(--accent)}
+nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0}
+nav a{display:block;position:relative;padding:8px 11px;font-size:14.5px;color:var(--muted);text-decoration:none;transition:color .2s}
+nav a::after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:hover,nav a.on{color:var(--ink)}
+nav a:hover::after,nav a.on::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:8px;cursor:pointer}
+
+main{position:relative;z-index:1}
+section{max-width:1120px;margin:0 auto;padding:88px 24px 8px}
+.h2{font-size:clamp(28px,4vw,38px);font-weight:800;margin-bottom:8px}
+.sub{color:var(--muted);margin:0 0 32px;max-width:60ch}
+
+#home{min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;padding-top:48px}
+.hello{color:var(--accent);font-weight:500;margin:0 0 10px}
+h1{font-size:clamp(44px,8vw,88px);font-weight:800;letter-spacing:-.02em}
+.type{font:500 clamp(18px,2.6vw,26px) "Bricolage Grotesque",sans-serif;margin:16px 0 18px;min-height:1.4em}
+.caret{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:3px;vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.intro{color:var(--muted);max-width:62ch;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font:600 15px "IBM Plex Sans",sans-serif;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--surface);cursor:pointer;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn.p{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn .i{width:18px;height:18px}
+.soc{display:flex;gap:10px}
+.ic{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);transition:transform .2s,background .2s,color .2s}
+.ic:hover{background:var(--accent);color:var(--accent-ink);transform:translateY(-3px) rotate(-6deg)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(94,234,212,.5)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.badge{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:rgba(94,234,212,.12);color:var(--accent);margin-bottom:12px}
+.card h3{font-size:19px;margin-bottom:6px}
+.muted{color:var(--muted);font-size:14.5px}
+
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.fact{display:flex;align-items:center;gap:10px;padding:12px 14px;font-weight:500;font-size:14.5px}
+.fact .i{color:var(--accent);width:20px;height:20px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{padding:5px 12px;border-radius:999px;border:1px solid var(--line);font-size:13.5px;color:var(--ink);background:rgba(255,255,255,.03)}
+.card.hl{border-color:var(--accent)}
+
+.tl{position:relative;padding-left:28px;border-left:2px solid var(--line)}
+.tl::before{content:"";position:absolute;left:-7px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(94,234,212,.15)}
+.row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.date{color:var(--accent);font-size:14px;font-weight:500}
+.card ul{margin:12px 0 0;padding-left:20px;display:grid;gap:6px;color:var(--muted)}
+.edu{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+
+.proj{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.proj .card{display:flex;flex-direction:column}
+.proj .wide{grid-column:1/-1}
+.ptop{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.ptop .l{display:flex;align-items:center;gap:12px}
+.ptop .badge{margin:0}
+.ghb{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--bg);transition:transform .2s,background .2s}
+.ghb:hover{background:var(--accent);color:var(--accent-ink);transform:rotate(-10deg) scale(1.1)}
+.ghb .i{width:22px;height:22px}
+.repo{margin-top:auto;padding-top:14px;font-size:14px;color:var(--accent);text-decoration:none;overflow-wrap:anywhere}
+.repo:hover{text-decoration:underline}
+
+.certs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.cert{display:flex;gap:14px;align-items:center}
+.cert .badge{margin:0}
+.cert b{font-weight:600}
+
+.contact{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.contact a.card{text-decoration:none;display:flex;gap:14px;align-items:center;overflow-wrap:anywhere}
+.contact .badge{margin:0}
+footer{position:relative;z-index:1;text-align:center;color:var(--muted);font-size:14px;padding:56px 24px 40px}
+.top{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:30;width:46px;height:46px;border-radius:50%;border:none;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s}
+.top.show{opacity:1;pointer-events:auto;transform:none}
+
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;padding:8px 24px 16px}
+  .about{grid-template-columns:1fr}
+}
+@media (max-width:420px){.facts{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
+@media print{.bg,header,.top,.cta,.soc{display:none}body,:root{background:#fff;color:#000;--ink:#000;--muted:#333;--surface:#fff;--line:#bbb;--accent:#0f766e}.card{backdrop-filter:none;break-inside:avoid}.js .rv{opacity:1;transform:none}#home{min-height:0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="gh" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+<symbol id="code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+<symbol id="db"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+<symbol id="layers"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+<symbol id="tool"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></symbol>
+<symbol id="cpu"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></symbol>
+<symbol id="brief"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+<symbol id="grad"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+<symbol id="folder"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.7-.9l-.8-1.2A2 2 0 0 0 7.9 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/></symbol>
+<symbol id="award"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></symbol>
+<symbol id="mail"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+<symbol id="pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="dl"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+<symbol id="up"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+<symbol id="menu"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+<symbol id="chart"><path d="M3 3v18h18"/><path d="M7 16V9M12 16V5M17 16v-4"/></symbol>
+<symbol id="branch"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+<symbol id="globe"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></symbol>
+<symbol id="bell"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+<symbol id="heart"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></symbol>
+<symbol id="net"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="M12 8v4M10 14l-3 3M14 14l3 3"/></symbol>
+</defs></svg>
+<div class="bg" aria-hidden="true"><i></i><i></i></div>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="#home">PK<b>.</b></a>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li><li><a href="#education">Education</a></li><li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg class="i"><use href="#menu"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section id="home">
+  <p class="hello">Hi, I am</p>
+  <h1>PARIKSHIT KOLI</h1>
+  <p class="type" aria-label="Data Analyst | MCA Student | Developer"><span id="typed" aria-hidden="true">Data Analyst | MCA Student | Developer</span><span class="caret" aria-hidden="true"></span></p>
+  <p class="intro">I work with SQL, Python, DBMS, Data Modeling and dashboards, and I built an AI Automated Health Monitoring System covering database design, data preprocessing and dashboard UI. I also have hands-on full stack experience with the MERN stack.</p>
+  <div class="cta">
+    <a class="btn p" href="#projects"><svg class="i"><use href="#folder"/></svg>View My Projects</a>
+    <button class="btn" id="resume" type="button"><svg class="i"><use href="#dl"/></svg>Download Resume</button>
+    <a class="btn" href="#contact"><svg class="i"><use href="#mail"/></svg>Contact Me</a>
+  </div>
+  <div class="soc">
+    <a class="ic" href="https://github.com/Parikshit-269" target="_blank" rel="noopener" aria-label="GitHub profile"><svg class="i f"><use href="#gh"/></svg></a>
+    <a class="ic" href="mailto:parikshitkoli75@gmail.com" aria-label="Email"><svg class="i"><use href="#mail"/></svg></a>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="h2 rv">About me</h2>
+  <div class="about rv">
+    <div class="card"><p style="margin:0">Data Analyst | MCA Student with hands-on experience in SQL, Python, DBMS, Data Structures and Algorithms (DSA), Data Modeling, and Dashboard Development. Built AI Automated Health Monitoring System — covering database design, data preprocessing, and dashboard UI. Working knowledge of AI/ML fundamentals, with strong analytical and problem-solving skills applied to real-world projects.</p></div>
+    <div class="facts">
+      <div class="card fact"><svg class="i"><use href="#db"/></svg>SQL</div>
+      <div class="card fact"><svg class="i"><use href="#code"/></svg>Python</div>
+      <div class="card fact"><svg class="i"><use href="#db"/></svg>DBMS</div>
+      <div class="card fact"><svg class="i"><use href="#net"/></svg>DSA</div>
+      <div class="card fact"><svg class="i"><use href="#layers"/></svg>Data Modeling</div>
+      <div class="card fact"><svg class="i"><use href="#chart"/></svg>Dashboards</div>
+      <div class="card fact"><svg class="i"><use href="#cpu"/></svg>AI/ML Fundamentals</div>
+      <div class="card fact"><svg class="i"><use href="#globe"/></svg>Full Stack</div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="h2 rv">Technical skills</h2>
+  <div class="grid rv">
+    <div class="card"><div class="badge"><svg class="i"><use href="#code"/></svg></div><h3>Programming languages</h3><div class="chips"><span class="chip">Java</span><span class="chip">Python</span><span class="chip">SQL</span></div></div>
+    <div class="card"><div class="badge"><svg class="i"><use href="#layers"/></svg></div><h3>Frameworks &amp; libraries</h3><div class="chips"><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express.js</span></div></div>
+    <div class="card"><div class="badge"><svg class="i"><use href="#db"/></svg></div><h3>Databases</h3><div class="chips"><span class="chip">MongoDB</span></div></div>
+    <div class="card"><div class="badge"><svg class="i"><use href="#tool"/></svg></div><h3>Tools &amp; platforms</h3><div class="chips"><span class="chip">Excel</span><span class="chip">Power BI</span><span class="chip">Tableau</span></div></div>
+    <div class="card"><div class="badge"><svg class="i"><use href="#cpu"/></svg></div><h3>Core knowledge</h3><div class="chips"><span class="chip">Data Structures &amp; Algorithms</span><span class="chip">Data Modeling</span><span class="chip">AI/ML Fundamentals</span><span class="chip">Version Control</span></div></div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2 class="h2 rv">Work experience</h2>
+  <div class="tl rv"><div class="card">
+    <div class="row"><h3>Full Stack Developer Intern</h3><span class="date">Apr 2026 – Jun 2026</span></div>
+    <p class="muted" style="margin:4px 0 0">OrianaTech Solutions Pvt. Ltd. · Internship · Pune</p>
+    <ul>
+      <li>Built responsive UI components using React as part of the MERN stack.</li>
+      <li>Integrated frontend with Node.js/Express backend and MongoDB database.</li>
+      <li>Collaborated with the team to translate feature requirements into working code.</li>
+      <li>Gained hands-on experience in full-stack development and version control.</li>
+    </ul>
+    <div class="chips"><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">MongoDB</span></div>
+  </div></div>
+</section>
+
+<section id="education">
+  <h2 class="h2 rv">Education</h2>
+  <div class="edu rv">
+    <div class="card"><div class="badge"><svg class="i"><use href="#grad"/></svg></div>
+      <div class="row"><h3>B.Sc. Artificial Intelligence &amp; Data Science</h3><span class="date">Apr 2023 – Jun 2026</span></div>
+      <p class="muted" style="margin:6px 0 0">JSPM University · Pune, Maharashtra · CGPA: 8.16</p></div>
+    <div class="card"><div class="badge"><svg class="i"><use href="#grad"/></svg></div>
+      <h3>Master of Computer Application (MCA)</h3>
+      <p class="muted" style="margin:6px 0 0">Currently pursuing</p></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="h2 rv">Projects</h2>
+  <div class="proj">
+    <article class="card wide rv">
+      <div class="ptop"><div class="l"><div class="badge"><svg class="i"><use href="#heart"/></svg></div><h3>AI Driven Health Automated System</h3></div><span class="date">Jul 2026</span></div>
+      <p class="muted" style="margin:0">Developed a machine learning-based health monitoring system for automated disease risk prediction using patient health parameters.</p>
+      <ul>
+        <li>Data preprocessing and feature scaling; model training using Random Forest Classifier.</li>
+        <li>Interactive dashboard built with Streamlit for health data input, prediction display, and alert generation.</li>
+        <li>Automated prediction pipeline and model deployment using Joblib.</li>
+        <li>Healthcare datasets used for predictive analytics and real-time risk assessment.</li>
+      </ul>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Scikit-learn</span><span class="chip">Streamlit</span><span class="chip">SQLite</span><span class="chip">Streamlit Cloud</span><span class="chip">GitHub</span></div>
+    </article>
+
+    <article class="card rv">
+      <div class="ptop"><div class="l"><div class="badge"><svg class="i"><use href="#globe"/></svg></div><h3>Webclient Assessment</h3></div>
+        <a class="ghb" href="https://github.com/Parikshit-269/Webclient-Assesment" target="_blank" rel="noopener" aria-label="Webclient Assessment on GitHub" title="Webclient Assessment on GitHub"><svg class="i f"><use href="#gh"/></svg></a></div>
+      <p class="muted" style="margin:0">Source code and details are available in the GitHub repository.</p>
+      <a class="repo" href="https://github.com/Parikshit-269/Webclient-Assesment" target="_blank" rel="noopener">github.com/Parikshit-269/Webclient-Assesment</a>
+    </article>
+
+    <article class="card rv">
+      <div class="ptop"><div class="l"><div class="badge"><svg class="i"><use href="#bell"/></svg></div><h3>NoticeIQ</h3></div>
+        <a class="ghb" href="https://github.com/Parikshit-269/NoticeIQ" target="_blank" rel="noopener" aria-label="NoticeIQ on GitHub" title="NoticeIQ on GitHub"><svg class="i f"><use href="#gh"/></svg></a></div>
+      <p class="muted" style="margin:0">Source code and details are available in the GitHub repository.</p>
+      <a class="repo" href="https://github.com/Parikshit-269/NoticeIQ" target="_blank" rel="noopener">github.com/Parikshit-269/NoticeIQ</a>
+    </article>
+  </div>
+</section>
+
+<section id="certifications">
+  <h2 class="h2 rv">Certifications</h2>
+  <div class="certs rv">
+    <div class="card cert"><div class="badge"><svg class="i"><use href="#award"/></svg></div><b>Google Data Science Virtual Internship</b></div>
+    <div class="card cert"><div class="badge"><svg class="i"><use href="#award"/></svg></div><b>Altair Data Science Certification</b></div>
+    <div class="card cert"><div class="badge"><svg class="i"><use href="#award"/></svg></div><b>Outskill Generative AI Mastermind</b></div>
+    <div class="card cert"><div class="badge"><svg class="i"><use href="#award"/></svg></div><b>NPTEL – Introduction to IoT</b></div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="h2 rv">Contact</h2>
+  <p class="sub rv">The quickest way to reach me is by email.</p>
+  <div class="contact rv">
+    <a class="card" href="mailto:parikshitkoli75@gmail.com"><div class="badge"><svg class="i"><use href="#mail"/></svg></div><span>parikshitkoli75@gmail.com</span></a>
+    <div class="card" style="display:flex;gap:14px;align-items:center"><div class="badge" style="margin:0"><svg class="i"><use href="#pin"/></svg></div><span>Pune, India</span></div>
+    <a class="card" href="https://github.com/Parikshit-269" target="_blank" rel="noopener"><div class="badge"><svg class="i f"><use href="#gh"/></svg></div><span>github.com/Parikshit-269</span></a>
+  </div>
+</section>
+</main>
+<footer>© Parikshit Koli</footer>
+<button class="top" id="top" type="button" aria-label="Back to top"><svg class="i"><use href="#up"/></svg></button>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.getElementById('nav'),burger=document.getElementById('burger');
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  [].forEach.call(nav.querySelectorAll('a'),function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')})});
+
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  if('IntersectionObserver' in window){
+    var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-40% 0px -55% 0px'});
+    links.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)spy.observe(s)});
+    if(!reduce){
+      document.documentElement.classList.add('js');
+      var rv=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}})},{threshold:.1});
+      [].forEach.call(document.querySelectorAll('.rv'),function(el){rv.observe(el)});
+    }
+  }
+
+  var el=document.getElementById('typed'),full='Data Analyst | MCA Student | Developer',i=0;
+  if(!reduce){el.textContent='';(function t(){el.textContent=full.slice(0,++i);if(i<full.length)setTimeout(t,60)})();}
+
+  var top=document.getElementById('top');
+  window.addEventListener('scroll',function(){top.classList.toggle('show',window.scrollY>600)},{passive:true});
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'})});
+
+  document.getElementById('resume').addEventListener('click',function(){window.print()});
+})();
+</script>
+</body>
+</html>
